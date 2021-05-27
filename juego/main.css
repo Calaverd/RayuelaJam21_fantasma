@@ -1,0 +1,170 @@
+
+@import "bulma.css";
+
+@font-face {
+  font-family: Atkinson;
+  src: url("./assets/fonts/Atkinson-Hyperlegible-Regular-102a.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Atkinson Bold;
+  src: url("./assets/fonts/Atkinson-Hyperlegible-Bold-102a.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Atkinson Italic;
+  src: url("./assets/fonts/Atkinson-Hyperlegible-Italic-102a.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Atkinson BoldItalic;
+  src: url("./assets/fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2");
+  font-display: swap;
+}
+
+body, button, input, optgroup, select, textarea { font-family: "Atkinson", sans-serif; }
+
+form {
+  width: 100%;
+  float: left;
+}
+
+button:focus {
+  background: pink;
+}
+
+.button.is-multiline {
+  min-height: 2.25em;
+  white-space: unset;
+  height: auto;
+  flex-direction: column;
+}
+
+.fade-in{
+    -webkit-animation: fadeIn 0.8s;
+    animation: fadeIn 1.2s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.fade-out{
+  -webkit-animation: fadeOut 1.2s;
+  animation: fadeOut 1.2s;
+}
+
+@keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+
+
+.b-intro {
+  -webkit-animation: intro 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: intro 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes intro {
+  0% {
+    -webkit-transform: translateY(20px) scale(0.8);
+            transform: translateY(20px) scale(0.8);
+            opacity:0;
+  }
+  100% {
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1);
+            opacity:1;
+  }
+}
+
+@keyframes intro {
+  0% {
+    -webkit-transform: translateY(20px) scale(0.8);
+            transform: translateY(20px) scale(0.8);
+            opacity:0;
+  }
+  100% {
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1);
+            opacity:1;
+  }
+}
+
+.b-c-exit {
+  -webkit-animation: exit-c 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: exit-c 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes exit-c {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity:1;
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+            opacity:0;
+  }
+}
+@keyframes exit-c {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity:1;
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+            opacity:0;
+  }
+}
+
+.b-exit {
+  -webkit-animation: exit 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: exit 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes exit {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity:1;
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+            opacity:0;
+  }
+}
+@keyframes exit {
+  0% {
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1);
+            opacity:1;
+  }
+  100% {
+    -webkit-transform: translateY(50px) scale(0.8);
+            transform: translateY(50px) scale(0.8);
+            opacity:0;
+  }
+}

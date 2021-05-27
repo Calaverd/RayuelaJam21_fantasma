@@ -1,0 +1,168 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Borges Markup",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+	    {
+			"include": "#strings"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"comments":{
+			"patterns": [
+				{
+					"name": "comment.line.borges",
+					"match": "\/\/.*?(?:$)"
+				},
+				{
+				"name": "comment.block.borges",
+                "begin": "\\s*+((/\\*))",
+                "end": "(\\s*(\\*/))"
+                }
+	      ]
+		},
+		"keywords": {
+			"patterns": [
+			    {
+				"name": "keyword.require.borges",
+				"match": "\\b(require)\\b"
+			    },
+			    {
+				"name": "meta.variable.language.borges",
+				"match": "\\$[a-zA-Z]+([A-z0-9_.-]*)+\\$"
+			    },
+			    {
+				"name": "constant.numeric.borges",
+				"match": "\\s[0-9]+\\s"
+			    },
+			    {
+				"name": "meta.variable.language.borges",
+                "begin": "(?<=\\{\\{)",
+                "end": ".*?(?=\\}\\})"
+                },
+                
+                {
+				"name": "invalid.illegal.borges",
+				"match": "\\$.*\\s+.*\\$"
+			    },
+			    {
+				"name": "invalid.illegal.borges",
+				"match": "\\$.*[^\\$]"
+			    },
+                
+                {
+				"name": "invalid.illegal.borges",
+				"match": "^\\s*num\\s+[^\\$]"
+			    },
+			    {
+				"name": "invalid.illegal.borges",
+				"match": "^\\s*text\\s+[^\\$]"
+			    },
+			    {
+				"name": "invalid.illegal.borges",
+				"match": "^\\s*bool\\s+[^\\$]"
+			    },
+			    
+			    {
+				"name": "keyword.language.borges",
+				"match": "\\s+num\\s"
+			    },
+			    {
+				"name": "keyword.language.borges",
+				"match": "\\s+text\\s"
+			    },
+			    {
+				"name": "keyword.language.borges",
+				"match": "\\s+bool\\s"
+			    },
+			    
+			    {
+				"name": "keyword.language.borges",
+				"match": "\\b(true)\\b"
+			    },
+			    {
+				"name": "keyword.language.borges",
+				"match": "\\b(false)\\b"
+			    },
+			    
+			    {
+				"name": "constant.language.borges",
+				"match": "\\s*+::"
+			    },
+			    {
+				"name": "constant.language.borges",
+				"match": "\\s*+:\\)"
+			    },
+			    {
+				"name": "constant.language.borges",
+				"match": "\\s*+<:"
+			    },
+			    {
+				"name": "constant.language.borges",
+				"match": "\\s*+<:"
+			    },
+			    {
+				"name": "variable.language.borges",
+				"match": "!"
+			    },
+			    {
+				"name": "keyword.operator.borges",
+                "match": "\\?"
+                },
+			    {
+				"name": "keyword.operator.borges",
+                "match": "\\->"
+                },
+                {
+				"name": "keyword.operator.borges",
+                "match": "\\{\\{"
+                },
+                {
+				"name": "keyword.operator.borges",
+                "match": "\\}\\}"
+                },
+                {
+				"name": "entity.section.borges",
+				"match": "^\\s*##.*?(?:$)"
+                },
+                {
+				"name": "entity.section.borges",
+                "begin": "(?<=\\->)",
+                "end": ".*?(?=!|\\(|\\$|\\{|\")"
+                },
+                {
+				"name": "constant.numeric.borges",
+                "begin": "(?<=:\\))|(?<=<:)",
+                "end": ".*?(?=\\?|\\(|\\$|\\{|\"|\\->)"
+                },
+                {
+                "name":"support.function.bold.borges",
+                "match":"(?<=\\().*?(?=\\))"
+                }
+			    
+		  ]
+		},
+		"strings": {
+			"name": "string.quoted.double.borges",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.borges",
+					"match": "\\\\."
+				},
+				{
+				"name": "entity.other.borges",
+				"match": "\\$[a-zA-Z]+([A-z0-9_.-]*)+\\$"
+			    }
+			]
+		}
+	},
+	"fileTypes": ["brg"],
+	"scopeName": "source.brg"
+}

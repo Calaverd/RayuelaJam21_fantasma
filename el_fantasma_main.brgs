@@ -1,0 +1,128 @@
+/*
+El Fantasma
+Este es el código fuente en Borges script.
+
+*/
+
+$nombre$ = "Roca"
+$Titulo$ = "Mr"
+
+@require el_fantasma_aparición
+
+## Main
+
+"<strong>EL FANTASMA</strong><br>Una aventura interactiva por Calaverd.<br><br>Da clic con el ratón, o toca la pantalla táctil."
+
+:) "Comenzar" -> discleaner !
+:) "Créditos y licencia" -> Creditos !
+
+## discleaner
+
+"<div class='has-text-centered'>Los sucesos y personajes retratados en esta historia son completamente ficticios.<br>Cualquier parecido con personas reales, vivas o muertas, o con hechos reales es pura coincidencia...</div>"
+
+:) -> Comenzar !
+
+## Creditos
+
+"<div class='has-text-centered'><br><i class='fas fa-laptop-code'></i> por Calaverd con <i class='fas fa-heart'></i><br>usando JavaScript vainilla, <a href='https://bulma.io/'>Bulma</a> y <a href='https://github.com/nodeca/pako'>Pako</a><br><br><a rel='license' href='http://creativecommons.org/licenses/by/4.0/'><br>Todo el arte he historia esta bajo una licencia<br>Creative Commons de Atribución Internacional 4.0<br><img alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by/4.0/88x31.png' /></a></div>"
+
+
+:) "Regresar al principio" -> Main !
+
+
+## Comenzar
+
+"De más está decir cuan molesto resulta el constante traqueteo, causado por las ruedas de carruaje cuando se golpean contra los guijarros, topes y baches por aquel sendero mal glorificado con el atrevido nombre de \"camino\"."
+"Acaba de llover, mas las aguas dejaron tras de si el aire inundado de aquel tan bienvenido aroma que enerva los sentidos..."
+"...y el no tan grato frío."
+"Rezas a cualesquiera deidades y santos de los que puedes recordar que no se atoren en un lodazal."
+"El carro se detiene bruscamente."
+"—¡Llegamos!— exclama el cochero."
+"Tan pronto como termina, le responden los ladridos de un buen numero de perros."
+
+:) "Bajar del carruaje" -> entrada !
+
+
+## entrada 
+
+"Abres la puerta del coche. Puedes distinguir bajo la tenue luz de la luna un par de postes que delimitan un terreno, viñedos al rededor, y una casa de un diseño bastante simple y rustico.
+Es bastante evidente como la pared por acción de la intemperie, tiene algunas grietas que en ciertas partes -cual herida abierta- dejan ver el mortero y ladrillo debajo."
+"<div class='columns'><div class='column'></div><div class='column is-two-thirds has-text-centered'><figure class='image is-3by2'> <img src='./assets/viñedo.png' alt='explicacion'></figure></div><div class='column'></div></div>"
+"Un grupo de perros sale a tu paso, ladrando ferozmente. Sus colmillos contrastan contra la negrura de su pelaje. Mas cuando parece que te tienen al alcance para morderte se detienen."
+"Un hombre gordo, con una pijama que apenas le cubre la carne sale al paso, armado con un mosquete y un rudimentario quinqué."
+"—¡Sosegaos malditas bestias!- Entre gruñidos los  perros retroceden."
+"—¡Hable!, ¿Quién y qué negocio quiere?-" 
+
+:) "Soy la persona enviada por la administración" -> presentacion_formal !
+:) "¿Es usted el señor Montalvo\?" -> persentacion_hostil !
+
+## presentacion_formal
+
+"—Si es así, mil dispenses. Soy el señor Alfredo Montalvo Ulismar, orgulloso banquero, y al momento, a cargo de este maldito pedazo de tierra, y quién esta desesperado por su ayuda.- Responde el señor visiblemente apenado."
+"—Más ¿Con quién tengo el gusto?— agrega el señor Montalvo"
+
+<: $nombre$ (checkName) -> nombre_invalido, nombre_valido ! 
+
+## persentacion_hostil
+
+"—Es muy grosero responder una pregunta con otra, y si lo fuera, ¿A quién le importa?- Dice el señor irritado."
+"—Me manda la administración, soy la persona que el señor Montalvo solicito para lidiar con su problema.- Respondes amablemente."
+"—¡Mil disculpas!- exclama apenado. —Por los cielos, estoy hecho un manojo de nervios. Soy el señor Alfredo Montalvo Ulismar, y sí, estoy necesitado de ayuda."
+"—Más ¿Con quién tengo el gusto?— agrega el señor Montalvo"
+
+<: $nombre$ (checkName) -> nombre_invalido, nombre_valido ! 
+
+## nombre_invalido 
+
+"—¿De verdad su nombre es $nombre$?— dice el señor Montalvo con notable incredulidad "
+"—Lo lamento, pero me parece una broma de muy mal gusto."
+
+<: $nombre$ (checkName) -> nombre_invalido, nombre_valido ! 
+
+// este es un ejemplo de comentario
+## nombre_valido
+
+"¿Entonces su nombre es \"$nombre$\"?"
+
+//Diferentes opciones que llevan a una sección diferente
+:) "Sí, \"$nombre$\" es mi nombre." -> decide_titulo !
+:) "No." -> rename !
+
+## rename
+
+"—Le ruego un poco de seriedad, que nuestro tiempo es contado."
+
+<: $nombre$ (checkName) -> nombre_invalido, nombre_valido ! 
+
+## decide_titulo
+
+"—¿Con qué titulo he de referirme?"
+
+:) "Señor $nombre$ esta bien." -> titulo_valido 
+    {{  $Titulo$:"Señor"}} !
+:) "Señora $nombre$ esta bien." -> titulo_valido
+    {{  $Titulo$:"Señora"}} !
+:) "Prefiero que me digan..." -> custom_title !
+
+## custom_title 
+
+"(Escribe un titulo por el cual quieras que te llamen)"
+
+<: $Titulo$ (checkName) -> titulo_valido, titulo_valido !
+
+## titulo_valido 
+
+"—¿$Titulo$ $nombre$? Pregunta el señor Montalvo"
+
+:) "¡Sí\! llámeme $Titulo$ $nombre$" -> mucho_gusto !
+:) "¡Olvídalo\! solo dime \"Señor\"" -> mucho_gusto 
+    {{  $Titulo$:"Señor"}} !
+:) "¡Carajo\! dime \"Señora\"" -> mucho_gusto
+    {{  $Titulo$:"Señora"}} !
+:) "Entonces mejor llamadme..." -> custom_title !
+
+## mucho_gusto 
+
+"Mi $Titulo$ $nombre$, permítame que le de asilo en mi humilde casa, y le explique los pormenores de esta situación."
+
+:) "Pasar a la casa" -> pasar_a_la_casa !

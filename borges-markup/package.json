@@ -1,0 +1,25 @@
+{
+    "name": "borges-markup",
+    "displayName": "Borges Markup",
+    "description": "Un lenguaje de marcado propio para narrativas no lineales",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "borges",
+            "aliases": ["Borges Markup", "borges"],
+            "extensions": [".brg .brgs"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "borges",
+            "scopeName": "source.brg",
+            "path": "./syntaxes/borges.tmLanguage.json"
+        }]
+    }
+}

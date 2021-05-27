@@ -1,0 +1,431 @@
+$cuestionado$ = false
+$pregunta_1$ = false
+$pregunta_2$ = false
+$pregunta_3$ = false
+
+## pasar_a_la_casa
+
+"Un vez entran a la casa del señor Montalvo, notas como los muebles están desordenados, y el polvo se acumula."
+"—Disculpas por el desastre $Titulo$ $nombre$, por el constante acoso del fantasma, la servidumbre se ha marchado.- dice el señor Montalvo"
+"—Son supersticiones señor Montalvo, los fantasmas son sólo una manifestación de la ignorancia del vulgo.-"
+"Él se gira hacia a ti. Te mira fijamente como si le hubieras insultado."
+"—No me tome por un loco $Titulo$ $nombre$, tal vez en la capital sean solo cuentos de viejas para asustar malcriados...-"
+"El señor Montalvo se aparta un poco. Se da la vuelta y pone las manos en la mesa."
+"—...pero por mi vida y por Dios en ese cielo, le juro que son reales.-"
+"<div class='columns'><div class='column'></div><div class='column is-two-thirds has-text-centered'><figure class='image is-5by4'> <img src='./assets/explicación.png' alt='explicacion'></figure></div><div class='column'></div></div>"
+
+:) ~$pregunta_1$ ? "Cuénteme más sobre quién es este \"fantasma\"" -> about_fantasma {{ $pregunta_1$: true }}!
+:) ~$pregunta_2$ ? "¿Cuando aparece el \"fantasma\"\?" -> about_f_horario {{ $pregunta_2$: true }}!
+:) ~$pregunta_3$ ? "¿El mosquete es por el \"fantasma\"\?" -> about_mosquete {{ $pregunta_3$: true }}!
+
+## about_fantasma
+
+"—Se trata del fantasma de un viejo cliente de mi banco, Don Marcos.- dice el señor Montalvo, pronto agrega: "
+"—Era un hombre rico, conocido en todo el pueblo, pero desde que su esposa murió, intento ahogar el dolor con bebida y juego, pronto se vio ahogado por las deudas, me solicito un préstamo cuantioso, y al no pagar, me vi en la penosa necesidad de tomar sus bienes.-"
+"El señor Montalvo se sienta a la mesa, se llena una copa con vino. Te hace una señal por si quieres tu también un poco pero la rechazas. Continúa con su relato"
+"—Ahora, todas las noches, deja atrás la tumba y vaga por mis terrenos, jurando a todo aliento, o lo que sea que le mueve, que YO lo asesine.-"
+
+:) $pregunta_1$ ? "¿Qué \"lo asesino\"\?" -> about_f_asesinato ! 
+
+
+## about_f_asesinato 
+
+"El señor Montalvo luce irritado, aparta la mirada al techo. Da un sorbo a la copa de vino que sostiene en su mano."
+"—El fantasma pregona a los cuatro vientos que yo lo asesine, no como figura del discurso, pero que fui yo quien lo lanzo a su muerte ese maldito día desde el balcón.-"
+"Da otro trago a su copa, te mira y dice:"
+"—$Titulo$ $nombre$, no soy ni de cerca un santo, pero sé que no soy un asesino a sangre fría.-"
+
+:) "¿Quién cree que lo matara\?" -> sin_sospechas!
+
+## sin_sospechas
+
+"—Seré sincero, su particular estilo de moverse entre la gente le habían dado una reputación nada envidiable.-"
+"El señor Montalvo se lleva la mano a la boca, pensando."
+"—El juego le dejo muchos enemigos que felizmente le hubieran apuñalado en una callejuela oscura, y de no ser por qué estaba conmigo ese día, también tendría sospechas de su hija-"
+"—¿El fantasma tiene una hija?- Preguntas con curiosidad"
+"—Una criatura angelical, pero tiene una presencia algo siniestra. Como no tiene lugar al cual ir, duerme aquí arriba.-"
+"<div class='columns'><div class='column'></div><div class='column is-two-thirds has-text-centered'><figure class='image is-5by4'> <img src='./assets/explicación.png' alt='explicacion'></figure></div><div class='column'></div></div>"
+
+:) ~$pregunta_2$ ? "¿Cuando aparece el \"fantasma\"\?" -> about_f_horario {{ $pregunta_2$: true }}!
+:) ~$pregunta_3$ ? "¿El mosquete es por el \"fantasma\"\?" -> about_mosquete {{ $pregunta_3$: true }}!
+:) $pregunta_3$ && $pregunta_2$ && $pregunta_1$ ? "Pronto sera la media noche" -> la_media_noche !
+
+## about_f_horario
+
+"—Al fantasma le apetece salir por las noches, eso ya lo he dicho, pero por lo general, entre las 12 y las 3 de la madrugada.- Dice notablemente cansado el señor Montalvo."
+"Volteas a ver el enorme reloj que hay al fondo, la tenue luz de las velas hace que las manecillas se hundan en la carátula blanca, pero se puede distinguir."
+"—No falta mucho para que el fantasma se muestre.-dices, casi para ti mismo."
+"El señor Montalvo toma su mosquete y lo acerca pesadamente. Decirle la hora lo puso nervioso."
+"<div class='columns'><div class='column'></div><div class='column is-two-thirds has-text-centered'><figure class='image is-5by4'> <img src='./assets/explicación.png' alt='explicacion'></figure></div><div class='column'></div></div>"
+
+:) ~$pregunta_1$ ? "Cuénteme más sobre quien es este \"fantasma\"" -> about_fantasma {{ $pregunta_1$: true }}!
+:) ~$pregunta_3$ ? "¿El mosquete es por el \"fantasma\"\?" -> about_mosquete {{ $pregunta_3$: true }}!
+:) $pregunta_3$ && $pregunta_2$ && $pregunta_1$ ? "Pronto sera la media noche" -> la_media_noche !
+
+
+## about_mosquete
+
+"El señor Montalvo mira el mosquete una sonrisa le cruza el rostro, mas pronto se apaga, regresando a su aspecto cansado y severo."
+"—Fue un regalo. Lo he tenido desde hace años, jamas pensé en usarlo, pero desde que esa cosa apareció, me hace sentir más seguro que un crucifijo, muy a pesar de que no le hace ni un rasguño.-"
+"<div class='columns'><div class='column'></div><div class='column is-two-thirds has-text-centered'><figure class='image is-5by4'> <img src='./assets/explicación.png' alt='explicacion'></figure></div><div class='column'></div></div>"
+
+:) ~$pregunta_1$ ? "Cuénteme más sobre quien es este \"fantasma\"" -> about_fantasma {{ $pregunta_1$: true }}!
+:) ~$pregunta_2$ ? "¿Cuando aparece el \"fantasma\"\?" -> about_f_horario {{ $pregunta_2$: true }}!
+:) $pregunta_3$ && $pregunta_2$ && $pregunta_1$ ? "Pronto sera la media noche" -> la_media_noche !
+
+
+## la_media_noche 
+
+"Esperas junto al señor Montalvo unos minutos. EL silencio es tal que puedes escuchar tu respiración calmada y los latidos de tu corazón junto al avanzar de las manecillas."
+"Cabeceas un poco, tus ojos se cierran un instante..."
+"Antes del que el sopor se apodere de ti, la campana del reloj suena."
+"Abres los ojos y dirijes la mirada a las manecillas. Es la media noche."
+"—Aquí viene.- Dice el señor Montalvo"
+
+:) -> la_aparicion ! 
+
+## la_aparicion
+
+"La temperatura baja drasticamente. Los perros vuelven a ladrar desesperadamente, los caballos del carruaje relinchan."
+"—¡M O N T A L V O!- grita una voz hueca, definitivamente espectral con una fuerza ensordecedora."
+"Tu alma queda estremecida al escucharlo."
+"Los perros empiezan a chillar de miedo, para después quedar en silencio."
+"—Sal maldito traidor, y enfréntame....- añade la voz."
+"El señor Montalvo armado con su mosquete sale por la puerta molesto."
+
+:) "Ir tras el señor Montalvo" -> encuentro_fantasmal1 !
+:) "Quedarse a esperar." -> espera_l2 !
+
+## espera_l2
+
+"—¡Los muertos deben de quedarse bajo tierra!- El señor Montalvo exclama"
+"—El silencio de la tumba no puede acallar mi sangre que busca justicia."
+"—¡Lárgate!- escuchas seguido por un disparo afuera."
+"Los perros ladran furiosos, y los caballos relinchan de pavor."
+"Escuchas unos pasos bajando por la escalera, se trata de una mujer delgada, casi en los huesos, con un vestido negro tan largo que le tapa los pies, y con un velo blanco ocultándole el rostro."
+"Da la impresión de que camina sin tocar el suelo."
+
+:) "Preguntar a la extraña quien es." -> conociendo_a_ofelia_l2 !
+:) "Salir de la habitación." -> encuentro_fantasmal2 !
+
+## conociendo_a_ofelia_l2
+
+"Te armas de valor y de tus labios escapa temblorosa una pregunta."
+"—¿Quien eres?-"
+"Más no se detiene a verte, solo sigue su camino hacia la puerta, hacia a ti."
+"Cierras los ojos temeroso. Escuchas como sigue caminando hasta estar junto a ti. Te llega un aroma a rosas cuando esta a tu lado. Pasa de largo y la escuchas abriendo la puerta y saliendo."
+"Afuera se puede escuchar la discusión entre el señor Montalvo y lo que sea quien le responde." 
+"—No puedes negar lo que ha pasado Montalvo, ¡¡¡Tu me mataste!!!-"
+"—Aun que salga de la boca de un muerto, seguirá siendo mentira-"
+"De la nada, se escucha otra voz en tono suplicante:"
+"—¡Padre!- se forma un silencio"
+"—Te lo ruego padre, ve y descansa, regresa a la paz de la tumba, y deja a los vivos.-"
+
+:) "Salir de la habitación"  -> encuentro_fantasmal3_b !
+:) "Quedarse en la habitación" -> bad_ending_l2_2 !
+
+
+## encuentro_fantasmal1
+
+"Sales tras el señor Montalvo."
+"Al frente, bajo la luz de la luna que se cuela entre las nubes de tormenta, esta un hombre alto, con un traje fino de gala negro como el plumaje de un cuervo. Su piel es pálida, y le cuelga un ojo sostenido solo por el nervio. Notas que esta flotando a un palmo del suelo."
+"—¡Los muertos deben de quedarse bajo tierra!- El señor Montalvo exclama apuntando su arma a la aparición."
+"—El silencio de la tumba no puede acallar mi sangre que busca justicia."
+"—¡Lárgate!- Grita el señor Montalvo, y jala del gatillo."
+"El mosquete escupe fuego y estruendo hacia la aparición, pero esta ni se inmuta. Se acerca más hacia vosotros."
+"Los perros ladran nuevamente, furiosos. Los caballos relinchan de pavor."
+
+:) "No hacer nada" -> encuentro_fantasmal2_b !
+:) "Huir" -> bad_ending_l2_1 !
+:) "Cuestionar al fantasma" -> cuestion_fantasma !
+
+## encuentro_fantasmal2_b
+// conoces al fantasma pero no a la chica.
+"—No puedes negar lo que ha pasado Montalvo, ¡¡¡Tu me mataste!!!-"
+"—Aun que salga de la boca de un muerto, seguirá siendo mentira-"
+"De la nada, se escucha otra voz en tono suplicante:"
+"—¡Padre!- se forma un silencio"
+"Volteas a ver de donde viene. Se trata de una mujer delgada, casi en los huesos, con un vestido negro tan largo que le tapa los pies, y con un velo blanco ocultándole el rostro."
+"—Te lo ruego padre, ve y descansa, regresa a la paz de la tumba, y deja a los vivos.-agrega la chica."
+
+:) "No hacer nada" -> encuentro_fantasmal3 !
+
+
+## encuentro_fantasmal2
+// no conoces al fantasma, pero sí a la chica 
+"Sales detrás de la chica. Puedes ver el campo mojado, al señor Montalvo y... algo más."
+"Al frente, bajo la luz de la luna que se cuela entre las nubes de tormenta, esta un hombre alto, con un traje fino de gala negro como el plumaje de un cuervo. Su piel es pálida, y le cuelga un ojo sostenido solo por el nervio. Notas que esta flotando a un palmo del suelo."
+"—No puedes negar lo que ha pasado Montalvo, ¡¡¡Tu me mataste!!!- Escuchas salir de los labios de la aparición."
+"—Aun que salga de la boca de un muerto, seguirá siendo mentira-"
+"La chica camina desesperada hasta estar a un lado del señor Montalvo, se le escucha decir un tono suplicante:"
+"—¡Padre!- se forma un silencio."
+"Puedes ver como en el rostro del muerto es sobrecogido por la amargura."
+"—Te lo ruego padre, ve y descansa, regresa a la paz de la tumba, y deja a los vivos.- agrega la chica."
+
+:) "No hacer nada" -> encuentro_fantasmal3 !
+:) "Huir" -> bad_ending_l2_1 !
+:) ~$cuestionado$ ? "Cuestionar al fantasma" -> cuestion_fantasma_2 !
+
+## encuentro_fantasmal3 
+
+"—Ofelia- Dice el fantasma —¿Como es qué puedes vivir bajo el mismo techo que mi asesino?"
+"—Padre, el señor Montalvo no fue quien te asesino."
+"—Mi propia sangre...- El fantasma luce alterado, su rostro se desencaja."
+"—¡Mi propia sangre!- grita el fantasma. —Defendiendo a mi asesino... cuanto dolor me causas hija ingrata-"
+"—Padre, yo te amo, pero no sigas con esto. El señor Montalvo es inocente.-"
+"—¡Pues mueran! ¡Mueran todos ustedes aquí y ahora!-"
+
+:) "Aceptar tu destino" -> bad_ending_l2_3 !
+:) "Huir" -> bad_ending_l2_1 !
+:) $cuestionado$ ? "Sugerir tu ayuda al fantasma"  -> sugerir_ayudar !
+
+## encuentro_fantasmal3_b 
+
+"No puedes quedarte más tiempo encerrado, debes salir. Al cruzar el umbral puedes ver el campo mojado, al señor Montalvo, a la chica con el velo blanco a su lado y... algo más."
+"Al frente, bajo la luz de la luna que se cuela entre las nubes de tormenta, esta un hombre alto, con un traje fino de gala negro como el plumaje de un cuervo. Su piel es pálida, y le cuelga un ojo sostenido solo por el nervio. Notas que esta flotando a un palmo del suelo."
+"—Ofelia- Dice el ente. —¿Como es qué puedes vivir bajo el mismo techo que mi asesino?"
+"—Padre, el señor Montalvo no fue quien te asesino."
+"—Mi propia sangre...- El fantasma luce alterado, su rostro se desencaja."
+"—¡Mi propia sangre!- grita el fantasma. —Defendiendo a mi asesino... cuanto dolor me causas hija ingrata-"
+"—Padre, yo te amo, pero no sigas con esto. El señor Montalvo es inocente.-"
+"—¡Pues mueran! ¡Mueran todos ustedes aquí y ahora!-"
+
+:) "Aceptar tu destino" -> bad_ending_l2_3 !
+:) "Huir" -> bad_ending_l2_1 !
+:) ~$cuestionado$ ? "Intenta dialogar con el fantasma"  -> cuestion_fantasma_b !
+
+## cuestion_fantasma
+
+"Te armas de valor, y avanzas un paso al frente."
+"—Di...- las palabras se atoran en tu boca. —Disculpe, ¿Quién es usted?-"
+"El fantasma te mira con su ojo bueno de arriba a abajo."
+"—¿Quién quiere saber?-"
+"—$nombre$, $Titulo$ $nombre$... me envió la administración desde la capital.-"
+"—Soy...- Dice el fantasma. - o fui conocido con el nombre de Don Marcos Tapia y yo...- se nota el pesar en su voz"
+"El fantasma de Don Marcos se retuerce de dolor y de su cuerpo fantasmal sale un aullido aterrador."
+"—¡¡Fui asesinado!!¡¡Asesinado vilmente por ese hombre!!- Señala al señor Montalvo."
+
+:) "No decir nada más" -> encuentro_fantasmal2_b {{ $cuestionado$ : true }}!
+
+## cuestion_fantasma_b
+
+"Te armas de valor, y avanzas un paso al frente."
+"—Di...- las palabras se atoran en tu boca."
+"—Disculpe, Después de todo lo que he escuchado, debo decir que tengo un par de dudas. Exactamente ¿Quién es usted?-"
+"El fantasma te mira con su ojo bueno de arriba a abajo, como quien mira a un bicho horrendo, paralizado por el asco antes de decidirse a aplastarlo."
+"—¿Quién quiere saber?-"
+"—$nombre$, $Titulo$ $nombre$... me envió la administración desde la capital. -"
+"—Soy... o fui conocido con el nombre de Don Marcos Tapia y yo...- se nota el pesar en su voz"
+"El fantasma de Don Marcos se retuerce de ira y de su cuerpo fantasmal sale un aullido aterrador."
+"—¡¡Fui asesinado!!¡¡Ahora los matare a todos!!-"
+
+:) "Seguir hablando con el fantasma" -> sugerir_ayudar !
+
+
+## cuestion_fantasma_2
+
+"Te armas de valor, y avanzas un paso al frente."
+"—Di...- las palabras se atoran en tu boca. —Disculpe, ¿Quién es usted?-"
+"El fantasma te mira con su ojo bueno de arriba a abajo."
+"—¿Quién quiere saber?-"
+"—$nombre$, $Titulo$ $nombre$... me envió la administración desde la capital.-"
+"—Soy... o fui conocido con el nombre de Don Marcos Tapia y yo...- se nota el pesar en su voz"
+"El fantasma de Don Marcos se retuerce de dolor y de su cuerpo fantasmal sale un aullido aterrador."
+"—¡¡Fui asesinado!!¡¡Asesinado vilmente por ese hombre!!- Señala al señor Montalvo."
+
+:) "No decir nada más" -> encuentro_fantasmal3 {{ $cuestionado$ : true }}!
+
+## sugerir_ayudar
+
+"—¡Esto es un mal entendido!- exclamas desesperado."
+"—Creo en la razón y las leyes- respiras un poco, continuas con tanta calma como puedes -La venganza no puede caber entre los hombres civilizados.-"
+"—señor Don Marcos, a menos de que su hija, aquí presente, sea una arpía miserable y cómplice de su homicidio...- remarcas señalando a la chica."
+"—Hey, ¡¿Como se atreve?!- Exclama la señorita Ofelia molesta." 
+"Volteas a ver al fantasma y agregas:"
+"—Que ella nos diga cuales son sus razones para argumentar la inocencia del señor Montalvo-"
+
+:) "Adelante, habla Ofelia" -> ofelia_habla !
+:) "O puede matarnos de una vez" -> bad_ending_l2_3 !
+
+## ofelia_habla 
+
+"—Padre mio- dice Ofelia -aquel fatídico día, nos dejaste a mi y al señor Montalvo para ir al balcón.-"
+"—En efecto, lo hice. Mas cuando estaba en el balcón, reflexionando mi desgracia, sentí alguien tomarme de las piernas y arrojarme hacia el vacío...-"
+"—Pues padre, nosotros nos quedamos discutiendo los detalles del embargo... después te encontramos.-"
+"—Es cierto, jamas me aparte de la mirada de la señorita Ofelia.- Replica el señor Montalvo."
+"—¡¿Quién te pregunto?! Usurero barril sin fondo.- Dice el fantasma de Don Marcos."
+"—Jamas se aparto de mi lado el señor.- dice Ofelia inclinando la cabeza, se puede escuchar un profundo suspiro, y pronto anidio -El punto es, mi querido padre, que el señor Montalvo, por más despreciable que sea, no pudo ser tu asesino.-"
+"EL señor Montalvo se cruza de hombros, y aprieta la quijada, con toda la cara de quien quiere responder, mas sabe que le dicen sus verdades."
+
+:) "¿Esta seguro que fue Montalvo quien lo arrojo\?" -> esta_seguro_de_eso_marcos !
+:) "¿Duda del testimonio de su hija\?" -> duda_de_ofelia !
+
+## duda_de_ofelia
+
+"—¿Duda de la palabra de su propia sangre?- Preguntas al fantasma."
+"—Dudo de todo y de todos.-"
+"Tras decir esto el fantasma parece estar confundido, se lleva la mano a la frente, intentando razonar lo que ocurre."
+"—Montalvo me lo quito todo, mi fortuna, mis tierras y todo lo que no estaba clavado al piso, y sospecho ¿Acaso también me arrebataría el corazón de mi hija?-"
+"—¡Padre!- Exclama molesta la señorita Ofelia."
+"—¡Ya me has escuchado hija!-"
+
+:) "¿Esta seguro que fue Montalvo quien lo arrojo\?" -> esta_seguro_de_eso_marcos !
+
+## esta_seguro_de_eso_marcos
+
+"—¿Cuales son las pruebas que tiene contra el señor Montalvo?- Preguntas al fantasma."
+"—Qué es un tramposo usurero y canalla, un gusano sin honor.- dice el fantasma sin molesto, agitando todo su cuerpo, pronto agrega:"
+"—Estoy seguro que el muy malévolo, también es un asesino.-"
+"—¿Puede decir que el señor fue quien lo arrojo?-"
+"—Estoy...-"
+"No dejas que el fantasma termine de hablar, si había algún temor antes, este se ha disipado."
+"—¿Puede asegurar que el señor Montalvo fue quien lo arrojo del balcón?-"
+"—Yo...- El fantasma titubea."
+"—¡¿PUEDE?!- Le gritas al fantasma."
+"—¡No!, ¡No puedo!- responde el fantasma exasperado en un aullido."
+
+:) "Recriminar al fantasma por intentar matarlos" -> fantasma_cabeza_de_chorlito !
+:) "Ofrecerte a investigar el homicidio." -> ofrecer_investigar ! 
+
+## fantasma_cabeza_de_chorlito
+
+"—A pesar de no tener una certeza absoluta amenazo con matarnos- Espetas al fantasma."
+"—Podría matarte solo a ti y terminar con esto- Replica el fantasma."
+
+:) "Ofrecerte a investigar el homicidio." -> ofrecer_investigar ! 
+:) "¡Pues máteme\!" -> bad_ending_l2_4 !
+
+## ofrecer_investigar 
+
+"—Es claro que hay un asesino en este pueblo, y que usted no descansara hasta que se haga justicia.- Dices decidido."
+"El señor Montalvo, el fantasma de Don Marcos, y Ofelia detrás de su velo, todo ellos tienen su mirada en ti."
+"—¿Qué propone $Titulo$ $nombre$?- pregunta el señor Montalvo."
+"—Llegue a este pueblo con el encargo de aplicar la ley y así sera.-"
+"Caminas hacia el fantasma decidido."
+"—No desespere Don Marcos- Dices desbordando emoción."
+"—Llevare a su asesino a la justicia y podrá descansar en paz, confíe en mi.-"
+"Extiendes tu mano, el fantasma la mira confundido un momento. Finalmente te da un apretón de manos."
+
+:) "Ir a dormir" -> a_dormir !
+
+## a_dormir
+
+"—Ahora si me permite, debo de ir a dormir, he tenido un viaje largo y muchas emociones para un solo día.-"
+"—Espero honre su palabra $Titulo$ $nombre$, y me traiga la paz.- Dice el fantasma de Don Marcos."
+"La figura fantasmal de Don Marcos se desdibuja en el aire, hasta desaparecer."
+"—Volveré... $Titulo$ $nombre$- el viento susurra."
+"Tu te diriges de regreso a la casa, y en el primer sillón que vez te sientas y caes rendido."
+"Tras de ti entran el señor Montalvo y Ofelia, quienes no dan fe de lo que acaba de ocurrir." 
+
+:) "Despertar" -> un_nuevo_dia !
+
+## un_nuevo_dia
+
+"Abres los ojos, te cuesta enfocar las cosas. Acaricias tu espalda, no fue una buena noche."
+"Te das cuenta que no estas en tu cama."
+"Un enorme grito tuyo recorre toda la propiedad del señor Montalvo."
+"Varios sirvientes y el propio señor Montalvo vienen a ver que ocurre. Te encuentran hecho un manojo de temblores y nervios."
+"—¿Se encuentra bien $Titulo$ $nombre$?- pregunta el señor Montalvo."
+"Un sudor frío recorre todo tu cuerpo mientras intentas razonar lo ocurrido, miras tu mano incrédulo."
+"—Era un fantasma, un muerto, un cadáver, un occiso, con el ojo salido....- tu voz suena desencajada."
+"—...Y mi $Titulo$, se ofreció amablemente a encontrar al asesino.- agrega el señor Montalvo."
+"Otra vez gritas, tu mundo da vueltas, tu mente se tambalea peligrosamente a la locura."
+"
+¡FIN DEL JUEGO!"
+
+:) "Créditos" -> Creditos {{ 
+$cuestionado$ : false 
+$pregunta_1$ : false
+$pregunta_2$ : false
+$pregunta_3$ : false
+}}  !
+
+## bad_ending_l2_1 
+
+"Corres tan rápido como te permiten tus piernas"
+"Ignoras todo lo que queda atrás. No estas aquí para lidiar como esa clase de cosas."
+"Sigues corriendo, no ves por donde pisas."
+"De pronto resbalas, sientes como todo el mundo da vueltas."
+"Te golpeas contra las rocas, una y otra vez, hasta que una choca con tremenda fuerza contra tu cabeza."
+"En tus últimos momentos, mientras sientes la sangre fluir, antes de que la conciencia te abandone piensas:"
+"—Eran supersticiones... solo manifestación de la ignorancia del vulgo.-"
+"
+¡FIN DEL JUEGO!"
+
+:) "¿Volver a intentar\?" -> la_aparicion {{ 
+$cuestionado$ : false 
+}} !
+:) "No, Gracias" -> Main {{ 
+$cuestionado$ : false 
+$pregunta_1$ : false
+$pregunta_2$ : false
+$pregunta_3$ : false
+}} !
+
+
+## bad_ending_l2_2
+
+"—Ofelia- Escuchas a la voz espectral decir. —¿Como es qué puedes vivir bajo el mismo techo que mi asesino?"
+"—Padre, el señor Montalvo no fue quien te asesinó."
+"—Mi propia sangre... ¡Mi propia sangre!- grita el fantasma."
+"—Defendiendo a mi asesino... cuanto dolor me causas hija ingrata-"
+"—Padre, yo te amo, pero no sigas con esto. El señor Montalvo es inocente.-"
+"—¡Pues mueran! ¡Mueran todos ustedes aquí y ahora!-"
+"Tan pronto como suena la ultima frase, escuchas suplicas temerosas, luego gritos indescriptibles de dolor."
+"Después..."
+"Silencio."
+"Estas paralizado de terror. No puedes mover un solo musculo. La puerta se abre lentamente."
+"
+¡FIN DEL JUEGO!"
+
+
+:) "¿Volver a intentar\?" -> la_aparicion {{ 
+$cuestionado$ : false
+}} !
+:) "No, Gracias" -> Main {{ 
+$cuestionado$ : false 
+$pregunta_1$ : false
+$pregunta_2$ : false
+$pregunta_3$ : false
+}} !
+
+
+## bad_ending_l2_3 
+
+"—Pues que así sea- dice el fantasma de Don Marcos."
+"Antes de que puedas decir algo, el fantasma se abalanza sobre ti."
+"No importa cuanto grites, no se detiene."
+"Pronto, deja de doler y todo lo que puedes sentir es tu vida escapar lentamente de tu cuerpo."
+"
+¡FIN DEL JUEGO!"
+
+:) "¿Volver a intentar\?" -> la_aparicion {{ 
+$cuestionado$ : false
+}} !
+:) "No, Gracias" -> Main {{ 
+$cuestionado$ : false 
+$pregunta_1$ : false
+$pregunta_2$ : false
+$pregunta_3$ : false
+}} !
+
+
+## bad_ending_l2_4 
+
+"—¡Pues mejor máteme a tener que seguir escuchándolo señor cabeza de chorlito!- El enfado no te deja pensar con claridad."
+"—Pues que así sea- dice el fantasma de Don Marcos también molesto."
+"Antes de que puedas atinar a decir algo para calmar los ánimos, el fantasma se abalanza sobre ti."
+"Pronto puedes sentir tu vida escapar lentamente de tu cuerpo."
+"Te imaginas si podrás regresar como fantasma también."
+"
+¡FIN DEL JUEGO!"
+
+:) "¿Volver a intentar\?" -> ofelia_habla {{ 
+$cuestionado$ : false 
+}} !
+:) "No, Gracias" -> Main {{ 
+$cuestionado$ : false 
+$pregunta_1$ : false
+$pregunta_2$ : false
+$pregunta_3$ : false
+}} !
