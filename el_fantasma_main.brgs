@@ -24,7 +24,7 @@ $Titulo$ = "Mr"
 
 ## Creditos
 
-"<div class='has-text-centered'><br><i class='fas fa-laptop-code'></i> por Calaverd con <i class='fas fa-heart'></i><br>usando JavaScript vainilla, <a href='https://bulma.io/'>Bulma</a> y <a href='https://github.com/nodeca/pako'>Pako</a><br><br><a rel='license' href='http://creativecommons.org/licenses/by/4.0/'><br>Todo el arte he historia esta bajo una licencia<br>Creative Commons de Atribución Internacional 4.0<br><img alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by/4.0/88x31.png' /></a></div>"
+"<div class='has-text-centered'><br><i class='fas fa-laptop-code'></i> por Calaverd con <i class='fas fa-heart'></i><br>usando JavaScript vainilla, <a href='https://bulma.io/'>Bulma</a> y <a href='https://github.com/nodeca/pako'>Pako</a><br><br><a rel='Github' href='https://github.com/Calaverd/RayuelaJam21_fantasma'>Código fuente disponible en GitHub <i class='fab fa-github'></i></a><br><br><a rel='License' href='http://creativecommons.org/licenses/by/4.0/'>Todo el arte he historia esta bajo una licencia<br>Creative Commons de Atribución Internacional 4.0<br><img alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by/4.0/88x31.png' /></a></div>"
 
 
 :) "Regresar al principio" -> Main !
